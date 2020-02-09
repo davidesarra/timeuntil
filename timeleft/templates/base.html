@@ -1,5 +1,11 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block content %}
-  <h1>TIME LEFT</h1>
+<h1>TIME LEFT</h1>
+<form action="#" method="post">
+  {{ form.date(class='datepicker') }}
+  {{ form.time() }}
+  {{ form.hidden_tag() }}
+  <input type="submit" />
+</form>
 {% endblock %}
