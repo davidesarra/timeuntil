@@ -3,11 +3,11 @@ import datetime as dt
 import pendulum
 from flask import render_template
 
-from timeleft.app import timeleft_app
-from timeleft.forms import TimestampForm
+from timeuntil.app import timeuntil_app
+from timeuntil.forms import TimestampForm
 
 
-@timeleft_app.route('/', methods=['POST', 'GET'])
+@timeuntil_app.route('/', methods=['POST', 'GET'])
 def home():
     form = TimestampForm()
     if form.validate_on_submit():

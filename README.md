@@ -1,6 +1,6 @@
-# Time Left
+# Time Until
 
-Time Left is a CLI to display how much time is left until a certain timestamp.
+Time Until is a CLI to display how much time is left until a certain timestamp.
 
 ## How to run the app
 

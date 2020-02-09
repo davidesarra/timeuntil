@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "timeleft"
+name = "timeuntil"
 version = "0.1.0"
 description = ""
 authors = ["Davide Sarra <davide.sarra@gmail.com>"]

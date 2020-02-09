@@ -1,5 +1,5 @@
 run:
-	FLASK_APP=timeleft/app.py flask run
+	FLASK_APP=timeuntil/app.py flask run
 
 test:
 	poetry run pytest -vvv .
