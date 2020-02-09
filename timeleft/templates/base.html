@@ -9,4 +9,9 @@
   {{ form.hidden_tag() }}
   <input type="submit" />
 </form>
+
+{% if timestamp %}
+You selected {{ timestamp }}
+{% endif %}
+
 {% endblock %}

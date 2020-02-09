@@ -14,5 +14,7 @@ def home():
         timestamp = dt.datetime.combine(form.date.data, form.time.data)
         time_zone = form.time_zone.data
         tz_timestamp = pendulum.instance(timestamp, tz=time_zone)
-        return str(tz_timestamp)
+        return render_template(
+            'base.html', title='Time Left', form=form, timestamp=tz_timestamp
+        )
     return render_template('base.html', title='Time Left', form=form)
