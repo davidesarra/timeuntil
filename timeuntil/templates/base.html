@@ -23,17 +23,20 @@
           <br>
           <p class="lead" id="countdown">
             <script>
-              var start = new Date().getTime();
-              var end = new Date("{{ timestamp }}");
-              var delta = end - start;
-              var days = Math.floor(delta / (1000 * 60 * 60 * 24));
-              var hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              var minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-              var seconds = Math.floor((delta % (1000 * 60)) / 1000);
-              var countdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-              var parent_node = document.getElementById("countdown");
-              var countdown_node = document.createTextNode(countdown);
-              parent_node.appendChild(countdown_node);
+              function getCountdown() {
+                var start = new Date().getTime();
+                var end = new Date("{{ timestamp }}");
+                var delta = end - start;
+                var days = Math.floor(delta / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((delta % (1000 * 60)) / 1000);
+                var countdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                var parent_node = document.getElementById("countdown");
+                var countdown_node = document.createTextNode(countdown);
+                parent_node.replaceChild(countdown_node, parent_node.childNodes[0]);
+              }
+              window.setInterval(getCountdown, 1000);
             </script>
           </p>
           {% endif %}
