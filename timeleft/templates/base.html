@@ -11,7 +11,19 @@
 </form>
 
 {% if timestamp %}
-You selected {{ timestamp }}
+<p class="lead">
+  <script>
+    var start = new Date().getTime();
+    var end = new Date("{{ timestamp }}");
+    var delta = end - start;
+    var days = Math.floor(delta / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((delta % (1000 * 60)) / 1000);
+    var countdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    document.body.innerHTML += countdown;
+  </script>
+</p>
 {% endif %}
 
 {% endblock %}
