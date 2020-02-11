@@ -7,10 +7,10 @@ from timeuntil.app import timeuntil_app
 from timeuntil.forms import TimestampForm
 
 
-@timeuntil_app.route('/', methods=['POST', 'GET'])
+@timeuntil_app.route("/", methods=["POST", "GET"])
 def home():
-    title = 'Time Until'
-    template_name = 'base.html'
+    title = "Time Until"
+    template_name = "base.html"
     form = TimestampForm()
     if form.validate_on_submit():
         timestamp = dt.datetime.combine(form.date.data, form.time.data)

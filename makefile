@@ -10,3 +10,6 @@ run_locally:
 
 test:
 	poetry run pytest -vvv .
+
+format:
+	black .
