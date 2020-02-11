@@ -1,6 +1,7 @@
 # Time Until
 
-Time Until is a CLI to display how much time is left until a certain timestamp.
+Time Until is a Flask web app that countdowns time until a certain timestamp
+(time zone aware).
 
 ## How to run the app
 
