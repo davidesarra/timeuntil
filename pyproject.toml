@@ -7,7 +7,6 @@ authors = ["Davide Sarra <davide.sarra@gmail.com>"]
 [tool.poetry.dependencies]
 python = "~=3.8"
 pendulum = "^2.0.5"
-Click = "^7.0"
 Flask-Bootstrap = "^3.3.7"
 Flask-WTF = "^0.14.3"
 

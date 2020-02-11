@@ -275,7 +275,7 @@ version = "2.2.1"
 locale = ["Babel (>=1.3)"]
 
 [metadata]
-content-hash = "fe5f8a8b1eafaf5ece197baf64b000def936ce2fa18f415b456a6f6e9b6dc189"
+content-hash = "d6ed3df2311327710c008af7fae22d7b841cd45fc55e70d65c327b3828bef536"
 python-versions = "~=3.8"
 
 [metadata.files]
