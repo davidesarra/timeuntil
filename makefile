@@ -9,6 +9,8 @@ run_locally:
 	uwsgi --socket 0.0.0.0:5000 --protocol=http --yaml uwsgi.yaml
 
 test:
+	black --diff --check . && \
+	flake8 && \
 	poetry run pytest -vvv .
 
 format:
