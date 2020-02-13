@@ -1,0 +1,3 @@
+uwsgi:
+  module: timeuntil.wsgi:timeuntil_app
+  processes: 4

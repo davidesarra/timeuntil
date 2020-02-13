@@ -3,10 +3,10 @@ update_requirements:
 
 run_docker:
 	docker build -f Dockerfile -t timeuntil . && \
-	docker run -it -p 5000:5000 timeuntil
+	docker run -it -p 5000:5000 -u 1000:1000 timeuntil
 
 run_locally:
-	FLASK_APP=timeuntil/app.py flask run
+	uwsgi --socket 0.0.0.0:5000 --protocol=http --yaml uwsgi.yaml
 
 test:
 	poetry run pytest -vvv .
