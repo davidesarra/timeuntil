@@ -8,17 +8,16 @@ Time Until is a Flask web app that countdowns time until a certain timestamp
 ### Docker
 
 - Install Docker
-- Launch the app via `make run_docker` (if you have `make` else execute the
-  commands in the recipe manually)
+- Launch the app via `make run_docker`
 
 ### Locally
 
-- Install Poetry
+- Install [Poetry](https://python-poetry.org/)
+- Install [Yarn](https://yarnpkg.com/)
 - Create a virtual environment with Python `3.8`
-- Activate the environment
-- Install requirements via `poetry install`
-- Launch the app via `make run_locally` (if you have `make` else execute the
-  commands in the recipe manually)
+- Activate the virtual environment
+- Install the app via `make install_locally`
+- Launch the app via `make run_locally`
 
 ## Development guidelines
 

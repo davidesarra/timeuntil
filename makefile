@@ -1,6 +1,13 @@
 update_requirements:
 	poetry export -f requirements.txt > requirements.txt
 
+install_locally:
+	pip install --upgrade pip && \
+	poetry install && \
+	cd timeuntil/static/js && \
+	yarn install && \
+	cd ../../..
+
 run_docker:
 	docker build -f Dockerfile -t timeuntil . && \
 	docker run -it -p 5000:5000 -u 1000:1000 timeuntil
