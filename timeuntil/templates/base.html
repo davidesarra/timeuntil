@@ -1,5 +1,10 @@
 {% extends "bootstrap/base.html" %}
 
+{% block scripts %}
+{{super()}}
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/countdown.js') }}"></script>
+{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -23,20 +28,13 @@
           <br>
           <p class="lead" id="countdown">
             <script>
-              function getCountdown() {
-                var start = new Date().getTime();
-                var end = new Date("{{ timestamp }}");
-                var delta = end - start;
-                var days = Math.floor(delta / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((delta % (1000 * 60)) / 1000);
-                var countdown = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+              function showCountdown(timestamp) {
+                var countdown = getCountdown(timestamp);
                 var parent_node = document.getElementById("countdown");
                 var countdown_node = document.createTextNode(countdown);
                 parent_node.replaceChild(countdown_node, parent_node.childNodes[0]);
               }
-              window.setInterval(getCountdown, 1000);
+              window.setInterval(showCountdown, 1000, "{{ timestamp }}");
             </script>
           </p>
           {% endif %}
