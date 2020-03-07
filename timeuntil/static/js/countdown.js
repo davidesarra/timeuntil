@@ -1,10 +1,13 @@
 function getCountdown(timestamp) {
-    var start = new Date().getTime();
-    var end = new Date(timestamp);
-    var delta = end - start;
-    var days = Math.floor(delta / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((delta % (1000 * 60)) / 1000);
+    var start = moment();
+    var end = moment(timestamp);
+    var delta = moment.duration(end.diff(start));
+    var days = Math.floor(delta.asDays());
+    delta.subtract(days, "days");
+    var hours = Math.floor(delta.asHours());
+    delta.subtract(hours, "hours");
+    var minutes = Math.floor(delta.asMinutes());
+    delta.subtract(minutes, "minutes");
+    var seconds = Math.floor(delta.asSeconds());
     return days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 }

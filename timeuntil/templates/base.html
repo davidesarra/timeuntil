@@ -3,6 +3,7 @@
 {% block scripts %}
 {{super()}}
 <script type="text/javascript" src="{{ url_for('static', filename = 'js/countdown.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/node_modules/moment/moment.js') }}"></script>
 {% endblock %}
 
 {% block content %}
