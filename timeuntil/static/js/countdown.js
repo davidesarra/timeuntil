@@ -9,5 +9,5 @@ function getCountdown(timestamp) {
     var minutes = Math.floor(delta.asMinutes());
     delta.subtract(minutes, "minutes");
     var seconds = Math.floor(delta.asSeconds());
-    return days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
