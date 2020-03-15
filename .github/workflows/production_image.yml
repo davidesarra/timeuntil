@@ -1,0 +1,29 @@
+name: Build production image
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install Docker
+      run: |
+        sudo apt-get update
+        sudo apt-get remove docker docker-engine docker.io
+        sudo apt install docker.io
+        sudo systemctl unmask docker.service
+        sudo systemctl unmask docker.socket
+        sudo systemctl start docker.service
+        sudo systemctl enable docker
+    - name: Build production image
+      run: |
+        docker build -f Dockerfile -t timeuntil .
