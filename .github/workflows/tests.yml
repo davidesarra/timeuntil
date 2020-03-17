@@ -1,0 +1,35 @@
+name: Test application
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install
+      run: |
+        sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+        sudo apt-get update
+        sudo apt-get -y install yarn
+        sudo python -m pip install --upgrade pip
+        sudo pip install -r test_requirements.txt
+        sudo cd timeuntil/static/js
+        sudo yarn install
+        sudo cd ../../..
+    - name: Lint
+      run: |
+        black --diff --check .
+        flake8
+    - name: Run test suite
+      run: |
+        pytest -vvv .
