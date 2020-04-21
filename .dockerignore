@@ -1,6 +1,10 @@
 .git
+.github
 .gitignore
 **/__pycache__
 **/*.egg-info
-pip-wheel-metadata
 **/node_modules
+Dockerfile
+makefile
+pip-wheel-metadata
+README.md
