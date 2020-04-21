@@ -1,7 +1,3 @@
-update_requirements:
-	poetry export -f requirements.txt -o requirements.txt && \
-	poetry export -f requirements.txt -o test_requirements.txt --dev
-
 install_locally:
 	pip install --upgrade pip && \
 	poetry install && \
