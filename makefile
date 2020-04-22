@@ -12,7 +12,11 @@ run_docker:
 run_locally:
 	uwsgi --socket 0.0.0.0:5000 --protocol=http --yaml uwsgi.yaml
 
-test:
+test_docker:
+	docker build -f test.Dockerfile -t timeuntil-tests . && \
+	docker run -it timeuntil-tests
+
+test_locally:
 	black --diff --check . && \
 	flake8 && \
 	poetry run pytest -vvv .
